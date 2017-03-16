@@ -1,5 +1,5 @@
 from decimal import Decimal
-import simplejson as json
+import json
 import requests
 from .converter import RatesNotAvailableError, DecimalFloatMismatchError
 
@@ -13,7 +13,7 @@ class BtcConverter(object):
 
     def _decode_rates(self, response, use_decimal=False):
         if self._force_decimal or use_decimal:
-            decoded_data = json.loads(response.text, use_decimal=True)
+            decoded_data = json.loads(response.text, parse_float=decimal.Decimal)
         else:
             decoded_data = response.json()
         return decoded_data

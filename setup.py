@@ -16,7 +16,6 @@ setup(
     include_package_data=True,
     install_requires=[
         'requests',
-        'simplejson',
     ],
     classifiers=[
         'Intended Audience :: Developers',

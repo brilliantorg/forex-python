@@ -1,6 +1,6 @@
 import os
 from decimal import Decimal
-import simplejson as json
+import json
 import requests
 
 
@@ -34,7 +34,7 @@ class Common:
 
     def _decode_rates(self, response, use_decimal=False):
         if self._force_decimal or use_decimal:
-            decoded_data = json.loads(response.text, use_decimal=True).get('rates', {})
+            decoded_data = json.loads(response.text, parse_float=decimal.Decimal).get('rates', {})
         else:
             decoded_data = response.json().get('rates', {})
         return decoded_data
